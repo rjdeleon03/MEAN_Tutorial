@@ -2,7 +2,7 @@ var express = require('express');
 
 var router = express.Router();
 
-var TodoController = require("../controllers/todo.controller");
+var TodoController = require("../../controllers/todo.controller");
 
 // Match each API to the controller functions
 
