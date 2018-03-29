@@ -34,7 +34,7 @@ exports.createTodo = async function(req, res, next) {
     };
 
     try {
-        var createTodo = await TodoService.createTodo(todo);
+        var createdTodo = await TodoService.createTodo(todo);
         return res.status(201).json({
             status: 201,
             data: createdTodo,
