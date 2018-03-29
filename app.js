@@ -3,11 +3,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+var bluebird = require('bluebird');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+// database setup
+mongoose.Promise = bluebird;
+mongoose.connect("mongodb://localhost:27017/todoapp")
+.then(() => console.log("Successfully connected to MongoDB database"))
+.catch(() => console.log("Error connectiong to the MongoDB database!"));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
