@@ -8,6 +8,7 @@ var bluebird = require('bluebird');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var todosRouter = require('./routes/todos');
 
 var app = express();
 
@@ -28,8 +29,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // use routes
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
+app.use("/todos", todosRouter);
 
 // add cross origin request support
 app.use(function(req, res, next) {
